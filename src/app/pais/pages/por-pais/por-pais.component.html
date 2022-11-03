@@ -1,3 +1,4 @@
+<div class="animate__animated animate__fadeIn">
 <h2>Por país</h2>
 <div class="row">
   <div class="col">
@@ -9,13 +10,31 @@
   </div>
 </div>
 
+  <ul
+    *ngIf="viewSuggestions"
+    class="list-group">
+    <li
+      *ngFor="let country of suggestionForCountries"
+      class="list-group-item list-group-item-action">
+      <a
+        class="nav-link"
+        [routerLink]="['/pais', country.cca2]">
+        {{country.name.official}}
+      </a>
+    </li>
+    <li
+      (click)="searchSuggestion(query)"
+      class="list-group-item list-group-item-action">
+      <a class="nav-link">
+        Buscar "{{query}}"
+      </a>
+    </li>
+  </ul>
+
 <hr>
 <div
   *ngIf="haveError"
   class="alert alert-danger">No se encontró nada con el término {{ query }}</div>
-<div
-  *ngIf="!haveError"
-  class="row">
   <div
     *ngIf="countries.length != 0"
     class="col">

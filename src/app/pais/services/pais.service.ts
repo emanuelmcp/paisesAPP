@@ -20,7 +20,7 @@ export class PaisService {
     const url = `${ this.apiUrl }/capital/${capitalCity}`;
     return this.http.get<Country[]>( url );
   }
-  retireveCountryByCode ( id: string): Observable<Country> {
+  retrieveCountryByCode (id: string): Observable<Country> {
     const url = `${ this.apiUrl }/alpha/${id}`;
     return this.http.get<Country>( url );
   }
