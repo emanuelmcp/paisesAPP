@@ -26,6 +26,7 @@ export class PorPaisComponent {
 
   }
   search (query: string): void{
+    console.log(query);
     this.haveError = false;
     this.query = query;
     this.paisService.searchCountry(query)

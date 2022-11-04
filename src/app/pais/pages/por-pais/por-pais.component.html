@@ -4,14 +4,13 @@
   <div class="col">
     <app-pais-input
       (onEnter)="search( $event )"
-      (onDebounce)="retrieveSuggestions($event)"
       placeholder="Buscar pais"
     ></app-pais-input>
   </div>
 </div>
 
   <ul
-    *ngIf="viewSuggestions"
+    *ngShow="viewSuggestions"
     class="list-group">
     <li
       *ngFor="let country of suggestionForCountries"
